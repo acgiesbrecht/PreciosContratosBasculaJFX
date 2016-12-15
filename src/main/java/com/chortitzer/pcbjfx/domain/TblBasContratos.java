@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,6 +7,10 @@ package com.chortitzer.pcbjfx.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,47 +22,43 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author adriang
  */
+
+
 @Entity
 @Table(name = "tbl_bas_contratos")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TblBasContratos.findAll", query = "SELECT t FROM TblBasContratos t"),
-    @NamedQuery(name = "TblBasContratos.findById", query = "SELECT t FROM TblBasContratos t WHERE t.id = :id"),
-    @NamedQuery(name = "TblBasContratos.findByFecha", query = "SELECT t FROM TblBasContratos t WHERE t.fecha = :fecha"),
+    @NamedQuery(name = "TblBasContratos.findAll", query = "SELECT t FROM TblBasContratos t")
+    ,
+    @NamedQuery(name = "TblBasContratos.findById", query = "SELECT t FROM TblBasContratos t WHERE t.id = :id")
+    ,
+    @NamedQuery(name = "TblBasContratos.findByFecha", query = "SELECT t FROM TblBasContratos t WHERE t.fecha = :fecha")
+    ,
     @NamedQuery(name = "TblBasContratos.findByPrecioGsPorKg", query = "SELECT t FROM TblBasContratos t WHERE t.precioGsPorKg = :precioGsPorKg")})
-public class TblBasContratos implements Serializable {
+public class TblBasContratos implements Serializable, Cloneable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "fecha")
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime fecha;
-    @Basic(optional = false)
-    @Column(name = "precio_gs_por_kg")
-    private int precioGsPorKg;
-    @JoinColumn(name = "id_empresa", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Tblempresa idEmpresa;
-    @JoinColumn(name = "id_producto", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Tblproductos idProducto;
+
+    private final IntegerProperty id = new SimpleIntegerProperty();
+
+    private final ObjectProperty<LocalDateTime> fecha = new SimpleObjectProperty<>();
+
+    private final IntegerProperty precioGsPorKg = new SimpleIntegerProperty();
+
+    private final ObjectProperty<Tblempresa> idEmpresa = new SimpleObjectProperty<>();
+
+    private final ObjectProperty<Tblproductos> idProducto = new SimpleObjectProperty<>();
 
     public TblBasContratos() {
     }
 
+    /*
     public TblBasContratos(Integer id) {
         this.id = id;
     }
@@ -68,47 +68,60 @@ public class TblBasContratos implements Serializable {
         this.fecha = fecha;
         this.precioGsPorKg = precioGsPorKg;
     }
-
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
     public Integer getId() {
-        return id;
+        return id.get();
     }
-
+    
     public void setId(Integer id) {
-        this.id = id;
+        this.id.set(id);
     }
 
+    @Basic(optional = false)
+    @Column(name = "fecha")
     public LocalDateTime getFecha() {
-        return fecha;
+        return fecha.get();
     }
 
     public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+        this.fecha.set(fecha);
     }
 
+    @Basic(optional = false)
+    @Column(name = "precio_gs_por_kg")
     public int getPrecioGsPorKg() {
-        return precioGsPorKg;
+        return precioGsPorKg.get();
     }
 
     public void setPrecioGsPorKg(int precioGsPorKg) {
-        this.precioGsPorKg = precioGsPorKg;
+        this.precioGsPorKg.set(precioGsPorKg);
     }
 
+    @JoinColumn(name = "id_empresa", referencedColumnName = "id")
+    @ManyToOne(optional = false)
     public Tblempresa getIdEmpresa() {
-        return idEmpresa;
+        return idEmpresa.get();
     }
 
     public void setIdEmpresa(Tblempresa idEmpresa) {
-        this.idEmpresa = idEmpresa;
+        this.idEmpresa.set(idEmpresa);
     }
 
+    @JoinColumn(name = "id_producto", referencedColumnName = "id")
+    @ManyToOne(optional = false)
     public Tblproductos getIdProducto() {
-        return idProducto;
+        return idProducto.get();
     }
 
     public void setIdProducto(Tblproductos idProducto) {
-        this.idProducto = idProducto;
+        this.idProducto.set(idProducto);
     }
 
+    /*
     @Override
     public int hashCode() {
         int hash = 0;
@@ -128,7 +141,7 @@ public class TblBasContratos implements Serializable {
         }
         return true;
     }
-
+     */
     @Override
     public String toString() {
         return "com.chortitzer.industria.bascula.domain.TblBasContratos[ id=" + id + " ]";

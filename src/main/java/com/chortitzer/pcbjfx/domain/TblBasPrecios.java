@@ -7,6 +7,10 @@ package com.chortitzer.pcbjfx.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +20,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -34,21 +36,53 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TblBasPrecios implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    private final ObjectProperty<LocalDateTime> fechahoraVigencia = new SimpleObjectProperty<>();
+    
     @Id
     @Basic(optional = false)
-    @Column(name = "fechahora_vigencia")
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime fechahoraVigencia;
-    @Basic(optional = false)
-    @Column(name = "valor_gs_por_kg")
-    private int valorGsPorKg;
+    @Column(name = "fechahora_vigencia")    
+    public LocalDateTime getFechahoraVigencia(){
+        return fechahoraVigencia.get();
+    }
+    public void setFechahoraVigencia(LocalDateTime fechahoraVigencia) {
+        this.fechahoraVigencia.set(fechahoraVigencia);
+    }        
+    public ObjectProperty<LocalDateTime> fechahoraVigenciaProperty(){
+        return fechahoraVigencia;
+    } 
+                    
+    private final ObjectProperty<Tblproductos> idProducto = new SimpleObjectProperty<>();
+    
     @JoinColumn(name = "id_producto", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Tblproductos idProducto;
-
-    public TblBasPrecios() {
+    public Tblproductos getIdProducto() {
+        return idProducto.get();
+    }
+    public void setIdProducto(Tblproductos idProducto) {
+        this.idProducto.set(idProducto);
+    }
+    public ObjectProperty<Tblproductos> idProductoProperty (){
+        return idProducto;
     }
 
+    private final IntegerProperty valorGsPorKg = new SimpleIntegerProperty();
+    
+    @Basic(optional = false)
+    @Column(name = "valor_gs_por_kg")
+    public int getValorGsPorKg() {
+        return valorGsPorKg.get();
+    }
+    public void setValorGsPorKg(int valorGsPorKg) {
+        this.valorGsPorKg.set(valorGsPorKg);
+    }
+    public IntegerProperty valorGsPorKgProperty(){
+        return valorGsPorKg;
+    }
+    
+    public TblBasPrecios() {
+    }
+/*
     public TblBasPrecios(LocalDateTime fechahoraVigencia) {
         this.fechahoraVigencia = fechahoraVigencia;
     }
@@ -58,30 +92,8 @@ public class TblBasPrecios implements Serializable {
         this.valorGsPorKg = valorGsPorKg;
     }
 
-    public LocalDateTime getFechahoraVigencia() {
-        return fechahoraVigencia;
-    }
 
-    public void setFechahoraVigencia(LocalDateTime fechahoraVigencia) {
-        this.fechahoraVigencia = fechahoraVigencia;
-    }
-
-    public int getValorGsPorKg() {
-        return valorGsPorKg;
-    }
-
-    public void setValorGsPorKg(int valorGsPorKg) {
-        this.valorGsPorKg = valorGsPorKg;
-    }
-
-    public Tblproductos getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Tblproductos idProducto) {
-        this.idProducto = idProducto;
-    }
-
+/*
     @Override
     public int hashCode() {
         int hash = 0;
@@ -100,11 +112,12 @@ public class TblBasPrecios implements Serializable {
             return false;
         }
         return true;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "com.chortitzer.industria.bascula.domain.TblBasPrecios[ fechahoraVigencia=" + fechahoraVigencia + " ]";
     }
+   
 
 }

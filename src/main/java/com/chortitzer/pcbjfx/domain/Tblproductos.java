@@ -7,6 +7,10 @@ package com.chortitzer.pcbjfx.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,24 +40,20 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Tblproductos implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "descripcion")
-    private String descripcion;
-    @Column(name = "materiaprima")
-    private Integer materiaprima;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
+    
+    private final IntegerProperty id = new SimpleIntegerProperty();
+
+    private final StringProperty descripcion = new SimpleStringProperty();
+    
+    private final IntegerProperty materiaprima = new SimpleIntegerProperty();
+    
     private Collection<TblBasPrecios> tblBasPreciosCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
+    
     private Collection<TblBasContratos> tblBasContratosCollection;
 
     public Tblproductos() {
     }
-
+/*
     public Tblproductos(Integer id) {
         this.id = id;
     }
@@ -62,32 +62,40 @@ public class Tblproductos implements Serializable {
         this.id = id;
         this.descripcion = descripcion;
     }
-
+*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
     public Integer getId() {
-        return id;
+        return id.get();
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id.set(id);
     }
 
+    @Basic(optional = false)
+    @Column(name = "descripcion")
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.get();
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripcion.set(descripcion);
     }
 
+    @Column(name = "materiaprima")
     public Integer getMateriaprima() {
-        return materiaprima;
+        return materiaprima.get();
     }
 
     public void setMateriaprima(Integer materiaprima) {
-        this.materiaprima = materiaprima;
+        this.materiaprima.set(materiaprima == null ? 0 : materiaprima);
     }
 
     @XmlTransient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
     public Collection<TblBasPrecios> getTblBasPreciosCollection() {
         return tblBasPreciosCollection;
     }
@@ -97,6 +105,7 @@ public class Tblproductos implements Serializable {
     }
 
     @XmlTransient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProducto")
     public Collection<TblBasContratos> getTblBasContratosCollection() {
         return tblBasContratosCollection;
     }
@@ -104,7 +113,7 @@ public class Tblproductos implements Serializable {
     public void setTblBasContratosCollection(Collection<TblBasContratos> tblBasContratosCollection) {
         this.tblBasContratosCollection = tblBasContratosCollection;
     }
-
+/*
     @Override
     public int hashCode() {
         int hash = 0;
@@ -124,10 +133,10 @@ public class Tblproductos implements Serializable {
         }
         return true;
     }
-
+*/
     @Override
     public String toString() {
-        return descripcion;
+        return descripcion.get();
     }
 
 }

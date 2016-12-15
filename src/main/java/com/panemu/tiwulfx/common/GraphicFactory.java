@@ -33,28 +33,28 @@ import javafx.scene.layout.Region;
  */
 public class GraphicFactory {
 
-	private static final Image imgAdd = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/add.png"));
-	private static final Image imgDelete = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/delete.png"));
-	private static final Image imgEdit = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/edit.png"));
-	private static final Image imgExport = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/export.png"));
-	private static final Image imgReload = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/reload.png"));
-	private static final Image imgSave = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/save.png"));
-	private static final Image imgFilter = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/filter.png"));
-	private static final Image imgLookup = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/lookup.png"));
+	private static final Image imgAdd = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/add.png"));
+	private static final Image imgDelete = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/delete.png"));
+	private static final Image imgEdit = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/edit.png"));
+	private static final Image imgExport = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/export.png"));
+	private static final Image imgReload = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/reload.png"));
+	private static final Image imgSave = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/save.png"));
+	private static final Image imgFilter = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/filter.png"));
+	private static final Image imgLookup = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/lookup.png"));
 
-	private static final Image imgConfirm = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/confirm48.png"));
-	private static final Image imgError = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/error48.png"));
-	private static final Image imgInfo = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/info48.png"));
-	private static final Image imgWarning = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/warning48.png"));
+	private static final Image imgConfirm = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/confirm48.png"));
+	private static final Image imgError = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/error48.png"));
+	private static final Image imgInfo = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/info48.png"));
+	private static final Image imgWarning = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/warning48.png"));
 
-	private static final Image imgMenuCollapse = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/left.png"));
-	private static final Image imgMenuExpand = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/right.png"));
+	private static final Image imgMenuCollapse = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/left.png"));
+	private static final Image imgMenuExpand = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/right.png"));
 
-	private static final Image imgRequired = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/required.png"));
-	private static final Image imgInvalid = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/invalid.png"));
-	private static final Image imgRequiredInvalid = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/required_invalid.png"));
+	private static final Image imgRequired = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/required.png"));
+	private static final Image imgInvalid = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/invalid.png"));
+	private static final Image imgRequiredInvalid = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/required_invalid.png"));
 
-	private static final Image imgConfig = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/image/conf.png"));
+	private static final Image imgConfig = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/conf.png"));
 
 	/**
 	 * Graphic of Add button in TableControl

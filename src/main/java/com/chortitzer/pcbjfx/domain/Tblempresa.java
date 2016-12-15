@@ -29,38 +29,41 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "tblempresa")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Tblempresa.findAll", query = "SELECT t FROM Tblempresa t"),
-    @NamedQuery(name = "Tblempresa.findById", query = "SELECT t FROM Tblempresa t WHERE t.id = :id"),
-    @NamedQuery(name = "Tblempresa.findByNombre", query = "SELECT t FROM Tblempresa t WHERE t.nombre = :nombre"),
-    @NamedQuery(name = "Tblempresa.findByDireccion", query = "SELECT t FROM Tblempresa t WHERE t.direccion = :direccion"),
-    @NamedQuery(name = "Tblempresa.findByTelefono", query = "SELECT t FROM Tblempresa t WHERE t.telefono = :telefono"),
-    @NamedQuery(name = "Tblempresa.findByCuentacorriente", query = "SELECT t FROM Tblempresa t WHERE t.cuentacorriente = :cuentacorriente"),
+    @NamedQuery(name = "Tblempresa.findAll", query = "SELECT t FROM Tblempresa t")
+    ,
+    @NamedQuery(name = "Tblempresa.findById", query = "SELECT t FROM Tblempresa t WHERE t.id = :id")
+    ,
+    @NamedQuery(name = "Tblempresa.findByNombre", query = "SELECT t FROM Tblempresa t WHERE t.nombre = :nombre")
+    ,
+    @NamedQuery(name = "Tblempresa.findByDireccion", query = "SELECT t FROM Tblempresa t WHERE t.direccion = :direccion")
+    ,
+    @NamedQuery(name = "Tblempresa.findByTelefono", query = "SELECT t FROM Tblempresa t WHERE t.telefono = :telefono")
+    ,
+    @NamedQuery(name = "Tblempresa.findByCuentacorriente", query = "SELECT t FROM Tblempresa t WHERE t.cuentacorriente = :cuentacorriente")
+    ,
     @NamedQuery(name = "Tblempresa.findByRuc", query = "SELECT t FROM Tblempresa t WHERE t.ruc = :ruc")})
 public class Tblempresa implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
+
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "nombre")
+
     private String nombre;
-    @Column(name = "direccion")
+
     private String direccion;
-    @Column(name = "telefono")
+
     private String telefono;
-    @Column(name = "cuentacorriente")
+
     private String cuentacorriente;
-    @Column(name = "ruc")
+
     private String ruc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpresa")
+
     private Collection<TblBasContratos> tblBasContratosCollection;
 
     public Tblempresa() {
     }
 
+    /*
     public Tblempresa(Integer id) {
         this.id = id;
     }
@@ -69,7 +72,11 @@ public class Tblempresa implements Serializable {
         this.id = id;
         this.nombre = nombre;
     }
-
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
     public Integer getId() {
         return id;
     }
@@ -78,6 +85,8 @@ public class Tblempresa implements Serializable {
         this.id = id;
     }
 
+    @Basic(optional = false)
+    @Column(name = "nombre")
     public String getNombre() {
         return nombre;
     }
@@ -86,6 +95,7 @@ public class Tblempresa implements Serializable {
         this.nombre = nombre;
     }
 
+    @Column(name = "direccion")
     public String getDireccion() {
         return direccion;
     }
@@ -94,6 +104,7 @@ public class Tblempresa implements Serializable {
         this.direccion = direccion;
     }
 
+    @Column(name = "telefono")
     public String getTelefono() {
         return telefono;
     }
@@ -102,6 +113,7 @@ public class Tblempresa implements Serializable {
         this.telefono = telefono;
     }
 
+    @Column(name = "cuentacorriente")
     public String getCuentacorriente() {
         return cuentacorriente;
     }
@@ -110,6 +122,7 @@ public class Tblempresa implements Serializable {
         this.cuentacorriente = cuentacorriente;
     }
 
+    @Column(name = "ruc")
     public String getRuc() {
         return ruc;
     }
@@ -119,6 +132,7 @@ public class Tblempresa implements Serializable {
     }
 
     @XmlTransient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpresa")
     public Collection<TblBasContratos> getTblBasContratosCollection() {
         return tblBasContratosCollection;
     }
@@ -126,7 +140,7 @@ public class Tblempresa implements Serializable {
     public void setTblBasContratosCollection(Collection<TblBasContratos> tblBasContratosCollection) {
         this.tblBasContratosCollection = tblBasContratosCollection;
     }
-
+/*
     @Override
     public int hashCode() {
         int hash = 0;
@@ -146,7 +160,7 @@ public class Tblempresa implements Serializable {
         }
         return true;
     }
-
+*/
     @Override
     public String toString() {
         return nombre;
