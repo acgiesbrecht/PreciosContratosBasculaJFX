@@ -146,6 +146,12 @@
             <artifactId>miglayout-javafx</artifactId>
             <version>5.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.jidesoft/jidefx-fields -->
+        <dependency>
+            <groupId>com.jidesoft</groupId>
+            <artifactId>jidefx-fields</artifactId>
+            <version>0.9.1</version>
+        </dependency>
 
         <!-- Apache Commons -->
 
@@ -207,7 +213,7 @@
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
             <version>1.1</version>
-        </dependency>               
+        </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -224,9 +230,9 @@
             <artifactId>postgresql</artifactId>
             <version>9.4-1206-jdbc42</version>
         </dependency>
-    </dependencies>  
+    </dependencies>
 
-        
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
