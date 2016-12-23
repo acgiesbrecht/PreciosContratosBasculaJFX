@@ -28,7 +28,7 @@ public class App extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLDocument.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(("tiwulfx.css"));//load tiwulfx.css
+        scene.getStylesheets().add((getClass().getResource("/com/panemu/tiwulfx/res/tiwulfx.css").toExternalForm()));//load tiwulfx.css
         stage.setScene(scene);
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
