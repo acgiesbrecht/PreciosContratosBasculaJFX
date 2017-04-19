@@ -23,12 +23,11 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Image img = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/add.png"));
-
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLDocument.fxml"));
+        //Image img = new Image(GraphicFactory.class.getResourceAsStream("/com/panemu/tiwulfx/res/images/add.png"));
+        Parent root = FXMLLoader.load(this.getClass().getResource("/fxml/FXMLDocument.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add((getClass().getResource("/com/panemu/tiwulfx/res/tiwulfx.css").toExternalForm()));//load tiwulfx.css
+        scene.getStylesheets().add((this.getClass().getResource("/com/panemu/tiwulfx/res/tiwulfx.css").toExternalForm()));//load tiwulfx.css
         stage.setScene(scene);
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
